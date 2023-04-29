@@ -37,7 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wade.wsgi.application'
+WSGI_APPLICATION = 'wade.asgi.application'
 
 
 # Database
@@ -76,7 +85,15 @@ WSGI_APPLICATION = 'wade.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'wade',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres@123',
+        'HOST': 'localhost',
+        'PORT': 5432
+    },
+    'registry': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'wade_registry',
         'USER': 'postgres',
         'PASSWORD': 'postgres@123',
         'HOST': 'localhost',
