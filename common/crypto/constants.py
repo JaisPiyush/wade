@@ -10,4 +10,4 @@ class EncryptionAlgorithm(Enum):
 
 
 class HashingAlgorithm(Enum):
-    ...
+    BLAKE2B = "BLAKE2B"
