@@ -7,8 +7,6 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import ed25519, ed448
 from cryptography.exceptions import InvalidSignature
 
-#TODO: Move encryption from RSA to X25519
-
 from common.crypto.x25519 import X25519PublicKey
 
 from common.crypto.constants import EncryptionAlgorithm, HashingAlgorithm, SigningAlgorithm
