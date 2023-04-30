@@ -26,8 +26,8 @@ class Subscriber(models.Model):
 
 
     subscriber_id = models.CharField(max_length=265, primary_key=True, editable=False)
-    callback_url = models.URLField(unique=True, blank=False, null=False)
-    subscriber_url = models.URLField(blank=False, null=False)
+    callback_url = models.FilePathField(unique=True, blank=False, null=False)
+    subscriber_url = models.FilePathField(blank=False, null=False)
     country = models.CharField(max_length=3, blank=False, null=False)
     city = models.CharField(max_length=4,db_index=True, blank=False, null=False)
     domain = models.CharField(max_length=10, choices=ONDCDomainType.choices, 
@@ -49,6 +49,10 @@ class Subscriber(models.Model):
     gst = JSONField(default=dict, blank=False, null= False)
     pan = JSONField(default=dict, blank=False, null=False)
     owner_details = JSONField(default=dict, blank=False, null=False)
+    name_of_authorised_signatory = models.CharField(max_length=80)
+    address_of_authorised_signatory = models.TextField()
+    email_id = models.EmailField()
+    mobile_no = models.CharField(max_length=10)
     type = models.CharField(max_length=10, 
                             choices=SubscriberType.choices, db_index=True,
                             blank=True, null=True  
@@ -64,6 +68,10 @@ class Subscriber(models.Model):
 
 class NetworkParticipant(models.Model):
     subscriber = models.ForeignKey(Subscriber, on_delete=models.CASCADE, related_name='network_participant')
+    subscriber_url = models.FilePathField(
+        null=True,
+        blank=True,
+    )
     domain = models.CharField(max_length=10, choices=Subscriber.ONDCDomainType.choices, 
                               db_index=True, blank=False, null=False)
     type = models.CharField(max_length=10, 
@@ -72,7 +80,8 @@ class NetworkParticipant(models.Model):
                         )
     msn = models.BooleanField(default=False)
     city_code = ArrayField(models.CharField(max_length=10), db_index=True, blank=False, null=False)
-
+    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
 
 
 class SellerOnRecord(models.Model):
@@ -89,7 +98,8 @@ class SellerOnRecord(models.Model):
     valid_from = models.DateTimeField(blank=False, null=False)
     valid_until = models.DateTimeField(blank=False, null=False)
     city_code = ArrayField(models.CharField(max_length=10), db_index=True, blank=False, null=False)
-
+    created = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
  
 
 
