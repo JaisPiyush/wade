@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_celery_results',
+    'registry.apps.RegistryConfig'
 ]
 
 REST_FRAMEWORK = {
@@ -142,3 +144,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CELERY SETUP
+CELERY_TIMEZONE = "Asia/Kolkata"
+#TODO: Update the settings to cover urls
+CELERY_BROKER_URL = 'redis://:jarden@103@localhost:6379/1'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'default'

@@ -3,7 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Subscriber(models.Model):
-    ONDCDomainType = models.TextChoices('mobility', 'logistics', 'retail')
+    
+    class ONDCDomainType(models.TextChoices):
+        MOBILITY = 'mobility'
+        LOGISTICS = 'logistics'
+        RETAIL = 'retail'
 
     subscriber_id = models.CharField(max_length=75, primary_key=True)
     country = models.CharField(max_length=3)
