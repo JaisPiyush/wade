@@ -1,12 +1,15 @@
 # from enum import Enum
-
+import base64
 # from typing import Optional
 from cryptography.hazmat.primitives.serialization import load_pem_public_key
 from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.asymmetric import ed25519, ed448, rsa
+from cryptography.hazmat.primitives.asymmetric import ed25519, ed448
 from cryptography.exceptions import InvalidSignature
-import base64
+#TODO: Move encryption from RSA to X25519
+import nacl.utils
+from nacl.public import PrivateKey, Box
+
 from common.crypto.constants import EncryptionAlgorithm, HashingAlgorithm, SigningAlgorithm
 from common.crypto.exception import *
 
@@ -15,9 +18,6 @@ SigningAlgorithmHandlers = {
     SigningAlgorithm.ED448.value: ed448.Ed448PublicKey, # 80
 }
 
-EncryptionAlgorithmHandlers = {
-    EncryptionAlgorithm.RSA.value: rsa.RSAPublicKey, #600
-}
 
 HashingAlgorithmHandlers = {
     HashingAlgorithm.BLAKE2B.value: hashes.BLAKE2b

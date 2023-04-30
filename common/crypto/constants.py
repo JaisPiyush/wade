@@ -6,7 +6,7 @@ class SigningAlgorithm(Enum):
     ED448 = "ED448"
 
 class EncryptionAlgorithm(Enum):
-    RSA = "RSA"
+    X25519 = "X25519"
 
 
 class HashingAlgorithm(Enum):
