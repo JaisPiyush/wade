@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+
 import django_stubs_ext
 
 django_stubs_ext.monkeypatch()
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_celery_results',
-    'registry.apps.RegistryConfig'
+    'registry.apps.RegistryConfig',
+    'monitor.apps.MonitorConfig'
 ]
 
 REST_FRAMEWORK = {
@@ -131,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -147,6 +149,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DATETIME_FORMAT="%Y-%m-%d%H:%M:%S.%fZ"
 
 # CELERY SETUP
 CELERY_TIMEZONE = "Asia/Kolkata"
