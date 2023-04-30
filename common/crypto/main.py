@@ -6,26 +6,33 @@ from cryptography.hazmat.primitives.asymmetric import padding
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import ed25519, ed448
 from cryptography.exceptions import InvalidSignature
+
 #TODO: Move encryption from RSA to X25519
-import nacl.utils
-from nacl.public import PrivateKey, Box
+
+from common.crypto.x25519 import X25519PublicKey
 
 from common.crypto.constants import EncryptionAlgorithm, HashingAlgorithm, SigningAlgorithm
 from common.crypto.exception import *
 
-SigningAlgorithmHandlers = {
+
+
+SigningPublicKey = ed25519.Ed25519PublicKey | ed448.Ed448PublicKey
+EncryptionPublicKey = X25519PublicKey
+
+SigningAlgorithmHandlers: dict[str, SigningPublicKey] = {
     SigningAlgorithm.ED25519.value: ed25519.Ed25519PublicKey, # 50
     SigningAlgorithm.ED448.value: ed448.Ed448PublicKey, # 80
 }
 
+EncryptionAlgorithmHandlers = {
+    EncryptionAlgorithm.X25519.value: X25519PublicKey
+}
 
 HashingAlgorithmHandlers = {
     HashingAlgorithm.BLAKE2B.value: hashes.BLAKE2b
 }
 
 
-SigningPublicKey = ed25519.Ed25519PublicKey | ed448.Ed448PublicKey
-EncryptionPublicKey = rsa.RSAPublicKey
 
 
 class Cryptographer:
@@ -50,8 +57,8 @@ class Cryptographer:
     def load_encryption_key(public_key: str, algo: str) -> EncryptionPublicKey:
         public_bytes = Cryptographer.bytes_from_encoded(public_key)
         try:
-            EncryptionAlgorithmHandlers[algo.upper()]
-            return load_pem_public_key(public_bytes)
+            algorithm = EncryptionAlgorithmHandlers[algo.upper()]
+            return algorithm.from_public_bytes(public_bytes)  
         except KeyError:
             raise EncryptionAlgorithmNotSupported(algo)
     
@@ -89,12 +96,7 @@ class Cryptographer:
             )
         return base64.b64encode(
             self.public_key.encrypt(
-                message.encode(),
-                padding.OAEP(
-                    mgf=padding.MGF1(algorithm=hashes.SHA256()),
-                    algorithm=hashes.SHA256(),
-                    label=None
-                )
+                message.encode()
             )
         ).decode()
     
