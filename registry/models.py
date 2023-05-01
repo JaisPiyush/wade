@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField, JSONField
+from uuid import uuid4
 # Create your models here.
 
    
@@ -67,6 +68,7 @@ class Subscriber(models.Model):
 
 
 class NetworkParticipant(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True)
     subscriber = models.ForeignKey(Subscriber, on_delete=models.CASCADE, related_name='network_participant')
     subscriber_url = models.FilePathField(
         null=True,

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import socket
 import django_stubs_ext
 
 django_stubs_ext.monkeypatch()
@@ -30,6 +30,11 @@ SECRET_KEY = 'django-insecure-&xq74wp$e7u#1ym1v!l$rn4o*gz)=(ya&af@c_2qu@zb+t808k
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+try:
+    HOSTNAME = socket.gethostname()
+except:
+    HOSTNAME = 'localhost'
 
 
 # Application definition
