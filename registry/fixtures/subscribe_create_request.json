@@ -74,7 +74,7 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "address_of_authorised Signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
@@ -91,8 +91,8 @@
           "network_participant": [
             {
               "subscriber_url": "/bapl",
-              "domain": "nic2004:52110",
-              "type": "sellerApp",
+              "domain": "retail",
+              "type": "BPP",
               "msn": false,
               "city_code": [
                 "std:080"
@@ -125,7 +125,7 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "address_of_authorised Signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
@@ -139,10 +139,10 @@
               "valid_until": "2022-07-08T13:44:54.101Z"
             }
           },
-          "network_participant": {
+          "network_participant": [{
             "subscriber_url": "/bapl",
-            "domain": "nic2004:52110",
-            "type": "sellerApp",
+            "domain": "retail",
+            "type": "BPP",
             "msn": true,
             "city_code": [
               "std:080"
@@ -161,7 +161,7 @@
                 ]
               }
             ]
-          }
+          }]
         }
       },
       {
@@ -188,7 +188,7 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "address_of_authorised Signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
@@ -204,18 +204,18 @@
           },
           "network_participant": [
             {
-              "subscriber_url": "/buyerAppl",
-              "domain": "nic2004:52110",
-              "type": "buyerApp",
+              "subscriber_url": "/BAPl",
+              "domain": "retail",
+              "type": "BAP",
               "msn": false,
               "city_code": [
                 "std:080"
               ]
             },
             {
-              "subscriber_url": "/sellerAppl",
-              "domain": "nic2004:52110",
-              "type": "sellerApp",
+              "subscriber_url": "/BPPl",
+              "domain": "retail",
+              "type": "BPP",
               "msn": false,
               "city_code": [
                 "std:080"
@@ -248,7 +248,7 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "address_of_authorised Signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
@@ -264,18 +264,18 @@
           },
           "network_participant": [
             {
-              "subscriber_url": "/buyerApp1",
-              "domain": "nic2004:52110",
-              "type": "buyerApp",
+              "subscriber_url": "/BAP1",
+              "domain": "retail",
+              "type": "BAP",
               "msn": false,
               "city_code": [
                 "std:080"
               ]
             },
             {
-              "subscriber_url": "/sellerApp1",
-              "domain": "nic2004:52110",
-              "type": "sellerApp",
+              "subscriber_url": "/BPP1",
+              "domain": "retail",
+              "type": "BPP",
               "msn": true,
               "city_code": [
                 "std:080"

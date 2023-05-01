@@ -75,7 +75,7 @@ class WriteSubscriberOperationNumberSerializer(serializers.Serializer):
     ops_no = serializers.IntegerField(
         required=True,
         min_value=1,
-        max_value=10
+        max_value=12
     )
 
 class WriteSubscriberContextSerializer(serializers.Serializer):

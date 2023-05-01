@@ -1,0 +1,193 @@
+[
+    {
+        "context": {
+          "operation": {
+            "ops_no": 6
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "entity": {
+            "key_pair": {
+              "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaF=",
+              "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbK=",
+              "valid_from": "2022-07-08T13:44:54.101Z",
+              "valid_until": "2022-07-08T13:44:54.101Z"
+            }
+          }
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 7
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "seller_on_record": [
+                {
+                  "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+                  "key_pair": {
+                    "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaME=",
+                    "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWtt6rbI=",
+                    "valid_from": "2022-07-08T13:44:54.101Z",
+                    "valid_until": "2022-07-08T13:44:54.101Z"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 8
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "subscriber_url": "/sellerApp1",
+              "domain": "retail",
+              "type": "BPP",
+              "msn": false,
+              "city_code": [
+                "std:080"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 9
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "subscriber_url": "/sellerApp1",
+              "domain": "retail",
+              "type": "BPP",
+              "msn": true,
+              "city_code": [
+                "std:080"
+              ],
+              "seller_on_record": [
+                {
+                  "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+                  "key_pair": {
+                    "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+                    "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+                    "valid_from": "2022-07-08T13:44:54.101Z",
+                    "valid_until": "2022-07-08T13:44:54.101Z"
+                  },
+                  "city_code": [
+                    "std:080"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 10
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "domain": "retail",
+              "type": "BPP",
+              "msn": true,
+              "seller_on_record": [
+                {
+                  "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f094",
+                  "key_pair": {
+                    "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+S7f8EMDRY1GaE=",
+                    "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/q8iOUMk5NWt6rbI=",
+                    "valid_from": "2022-07-08T13:44:54.101Z",
+                    "valid_until": "2022-07-08T13:44:54.101Z"
+                  },
+                  "city_code": [
+                    "std:080"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 11
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "domain": "retail",
+              "type": "BAP",
+              "msn": false,
+              "city_code": [
+                "std:080",
+                "std:081"
+              ]
+            },
+            {
+              "subscriber_url": "/sellerApp1",
+              "domain": "retail",
+              "type": "BPP",
+              "msn": false,
+              "city_code": [
+                "std:080",
+                "std:081"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "context": {
+          "operation": {
+            "ops_no": 5
+          }
+        },
+        "message": {
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "timestamp": "2022-07-08T13:44:54.101Z",
+          "network_participant": [
+            {
+              "seller_on_record": [
+                {
+                  "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+                  "city_code": [
+                    "std:080",
+                    "std:081"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+]
