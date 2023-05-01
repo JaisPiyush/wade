@@ -25,7 +25,7 @@ class Subscriber(models.Model):
         UNSUBSCRIBED = 'UNSUBSCRIBED'
         
 
-
+    unique_key_id = models.CharField(max_length=70, primary_key=True, blank=False, null=False)
     subscriber_id = models.CharField(max_length=265,  editable=False, db_index=True)
     callback_url = models.TextField(unique=True, blank=False, null=False)
     country = models.CharField(max_length=3, blank=False, null=False)
@@ -40,7 +40,7 @@ class Subscriber(models.Model):
                             choices=SubscriberType.choices, db_index=True,
                             blank=True, null=True  
                         )
-    unique_key_id = models.CharField(max_length=70, primary_key=True, blank=False, null=False)
+    
     status = models.CharField(max_length=20, blank=False, null=False, 
                               choices=SubscriptionStatus.choices,
                               default=SubscriptionStatus.INITIATED

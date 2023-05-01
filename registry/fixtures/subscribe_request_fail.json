@@ -1,0 +1,292 @@
+[
+  {
+      "context": {
+        "operation": {
+          "ops_no": 1
+        }
+      },
+      "message": {
+        "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+        "timestamp": "2022-07-08T13:44:54.101Z",
+        "entity": {
+          "gst": {
+            "legal_entity_name": "ABC Incorporates",
+            "business_address": "Trade World, Mansarpur, Coorg, Karnataka 333333",
+            "city_code": [
+              "std:080"
+            ],
+            "gst_no": "07AAACN2082N4Z7"
+          },
+          "pan": {
+            "name_as_per_pan": "ABC Incorporates",
+            "pan_no": "ASDFP7657Q",
+            "date_of_incorporation": "23/06/1982"
+          },
+          "name_of_authorised_signatory": "Anand Sharma",
+          "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+          "email_id": "anand.sharma@abc.com",
+          "mobile_no": 9912332199,
+          "country": "IND",
+          "subscriber_id": "sit.grab.in",
+          "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "callback_url": "/ondc/onboarding",
+          "key_pair": {
+            "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+            "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+            "valid_from": "2022-07-08T13:44:54.101Z",
+            "valid_until": "2022-07-08T13:44:54.101Z"
+          }
+        },
+        "network_participant": [
+          {
+            "subscriber_url": "/bapl",
+            "domain": "retail",
+            "type": "BAP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          },
+          {
+            "subscriber_url": "/bapl",
+            "domain": "retail",
+            "type": "BPP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          }
+        ]
+      }
+  },
+  {
+      "context": {
+        "operation": {
+          "ops_no": 2
+        }
+      },
+      "message": {
+        "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+        "timestamp": "2022-07-08T13:44:54.101Z",
+        "entity": {
+          "gst": {
+            "legal_entity_name": "ABC Incorporates",
+            "business_address": "Trade World, Mansarpur, Coorg, Karnataka 333333",
+            "city_code": [
+              "std:080"
+            ],
+            "gst_no": "07AAACN2082N4Z7"
+          },
+          "pan": {
+            "name_as_per_pan": "ABC Incorporates",
+            "pan_no": "ASDFP7657Q",
+            "date_of_incorporation": "23/06/1982"
+          },
+          "name_of_authorised_signatory": "Anand Sharma",
+          "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+          "email_id": "anand.sharma@abc.com",
+          "mobile_no": 9912332199,
+          "country": "IND",
+          "subscriber_id": "sit.grab.in",
+          "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "callback_url": "/ondc/onboarding",
+          "key_pair": {
+            "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+            "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+            "valid_from": "2022-07-08T13:44:54.101Z",
+            "valid_until": "2022-07-08T13:44:54.101Z"
+          }
+        },
+        "network_participant": [
+          {
+            "subscriber_url": "/bapl",
+            "domain": "retail",
+            "type": "BAP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          },
+          {
+            "subscriber_url": "/bapl",
+            "domain": "retail",
+            "type": "BPP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "operation": {
+          "ops_no": 3
+        }
+      },
+      "message": {
+        "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+        "timestamp": "2022-07-08T13:44:54.101Z",
+        "entity": {
+          "gst": {
+            "legal_entity_name": "ABC Incorporates",
+            "business_address": "Trade World, Mansarpur, Coorg, Karnataka 333333",
+            "city_code": [
+              "std:080"
+            ],
+            "gst_no": "07AAACN2082N4Z7"
+          },
+          "pan": {
+            "name_as_per_pan": "ABC Incorporates",
+            "pan_no": "ASDFP7657Q",
+            "date_of_incorporation": "23/06/1982"
+          },
+          "name_of_authorised_signatory": "Anand Sharma",
+          "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+          "email_id": "anand.sharma@abc.com",
+          "mobile_no": 9912332199,
+          "country": "IND",
+          "subscriber_id": "sit.grab.in",
+          "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "callback_url": "/ondc/onboarding",
+          "key_pair": {
+            "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+            "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+            "valid_from": "2022-07-08T13:44:54.101Z",
+            "valid_until": "2022-07-08T13:44:54.101Z"
+          }
+        },
+        "network_participant": [{
+          "subscriber_url": "/bapl",
+          "domain": "retail",
+          "type": "BPP",
+          "msn": false,
+          "city_code": [
+            "std:080"
+          ]
+        }]
+      }
+    },
+    {
+      "context": {
+        "operation": {
+          "ops_no": 4
+        }
+      },
+      "message": {
+        "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+        "timestamp": "2022-07-08T13:44:54.101Z",
+        "entity": {
+          "gst": {
+            "legal_entity_name": "ABC Incorporates",
+            "business_address": "Trade World, Mansarpur, Coorg, Karnataka 333333",
+            "city_code": [
+              "std:080"
+            ],
+            "gst_no": "07AAACN2082N4Z7"
+          },
+          "pan": {
+            "name_as_per_pan": "ABC Incorporates",
+            "pan_no": "ASDFP7657Q",
+            "date_of_incorporation": "23/06/1982"
+          },
+          "name_of_authorised_signatory": "Anand Sharma",
+          "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+          "email_id": "anand.sharma@abc.com",
+          "mobile_no": 9912332199,
+          "country": "IND",
+          "subscriber_id": "sit.grab.in",
+          "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "callback_url": "/ondc/onboarding",
+          "key_pair": {
+            "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+            "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+            "valid_from": "2022-07-08T13:44:54.101Z",
+            "valid_until": "2022-07-08T13:44:54.101Z"
+          }
+        },
+        "network_participant": [
+          {
+            "subscriber_url": "/BAPl",
+            "domain": "retail",
+            "type": "BAP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          },
+          {
+            "subscriber_url": "/BPPl",
+            "domain": "retail",
+            "type": "BPP",
+            "msn": true,
+            "city_code": [
+              "std:080"
+            ],
+            "seller_on_record": []
+          }
+        ]
+      }
+    },
+    {
+      "context": {
+        "operation": {
+          "ops_no": 5
+        }
+      },
+      "message": {
+        "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+        "timestamp": "2022-07-08T13:44:54.101Z",
+        "entity": {
+          "gst": {
+            "legal_entity_name": "ABC Incorporates",
+            "business_address": "Trade World, Mansarpur, Coorg, Karnataka 333333",
+            "city_code": [
+              "std:080"
+            ],
+            "gst_no": "07AAACN2082N4Z7"
+          },
+          "pan": {
+            "name_as_per_pan": "ABC Incorporates",
+            "pan_no": "ASDFP7657Q",
+            "date_of_incorporation": "23/06/1982"
+          },
+          "name_of_authorised_signatory": "Anand Sharma",
+          "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+          "email_id": "anand.sharma@abc.com",
+          "mobile_no": 9912332199,
+          "country": "IND",
+          "subscriber_id": "sit.grab.in",
+          "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "callback_url": "/ondc/onboarding",
+          "key_pair": {
+            "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
+            "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
+            "valid_from": "2022-07-08T13:44:54.101Z",
+            "valid_until": "2022-07-08T13:44:54.101Z"
+          }
+        },
+        "network_participant": [
+          {
+            "subscriber_url": "/BAP1",
+            "domain": "retail",
+            "type": "BAP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          },
+          {
+            "subscriber_url": "/BPP1",
+            "domain": "retail",
+            "type": "BPP",
+            "msn": false,
+            "city_code": [
+              "std:080"
+            ]
+          }
+        ]
+      }
+    }
+]

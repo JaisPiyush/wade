@@ -1,10 +1,11 @@
-from typing import Any
+from typing import Any, List
 from .models import * 
 from rest_framework import serializers
 from rest_framework import validators
 from monitor.models import ContractRequestLogger
 from django.conf import settings
 from datetime import datetime, timedelta
+from collections import OrderedDict
 
 # TODO: Validate city code
 
@@ -32,17 +33,17 @@ class NetworkParticipantSerializer(serializers.ModelSerializer):
         model = NetworkParticipant
         exclude = ('subscriber',)
         read_only_fields = ('created', 'updated')
+        create_only_fields = ('type',)
     
-    def validate_msn(self, value):
-        if value and self.fields['type'] != Subscriber.SubscriberType.BPP:
+    def validate(self, attrs: Any) -> Any:
+        validated_data = super().validate(attrs)
+        if validated_data['msn'] and validated_data['type'] != Subscriber.SubscriberType.BPP:
             raise serializers.ValidationError('Invalid field value, only BPP can have msn=true')
-        return value
-    
-    def validate_seller_on_record(self, value):
-        if len(value) > 0 and (self.fields['type'] != Subscriber.SubscriberType.BPP \
+        if "seller_on_record" in validated_data and validated_data["seller_on_record"] != None and \
+            (validated_data['type'] != Subscriber.SubscriberType.BPP \
             or not self.fields['msn']):
             raise serializers.ValidationError('This field is unacceptable, only BPP-MSN can create this.')
-        return value
+        return validated_data
     
     def create(self, subscriber: Subscriber, validated_data: Any) -> Any:
         return NetworkParticipant.objects.create(subscriber=subscriber, **validated_data)
@@ -69,6 +70,12 @@ class SubscriberSerializer(serializers.ModelSerializer):
         model = Subscriber
         fields = '__all__'
         read_only_fields = ('status', 'created', 'updated')
+        create_only_fields = ('subscriber_id',)
+    
+    def create(self, validated_data: OrderedDict) -> Any:
+        if Subscriber.objects.filter(unique_key_id=validated_data.get('unique_key_id')).exists():
+            raise serializers.ValidationError({'unique_key_id': 'Subscriber with key_id already exists.'})
+        return super().create(validated_data)
 
 
 class WriteSubscriberOperationNumberSerializer(serializers.Serializer):
@@ -87,7 +94,7 @@ class WriteSubscriberMessageSerializer(serializers.Serializer):
     ])
     timestamp = serializers.DateTimeField(required=True)
     entity = SubscriberSerializer(required=True)
-    network_participant = serializers.ListField(child=NetworkParticipantSerializer(), required=True)
+    network_participant = NetworkParticipantSerializer(many=True, required=True)
 
     def validate_timestamp(self, value: datetime):
         if datetime.now(value.tzinfo) > value + timedelta(seconds=30):
@@ -97,6 +104,50 @@ class WriteSubscriberMessageSerializer(serializers.Serializer):
 class WriteSubscriberSerializer(serializers.Serializer):
     context = WriteSubscriberContextSerializer(required=True)
     message = WriteSubscriberMessageSerializer(required=True)
+
+
+    def validate_operation(self, operation: int, network_participant: List[OrderedDict]):
+        validated = False
+        get_filtered_list = lambda constraint: list(filter(constraint, network_participant))
+        err_string = "Unknown ops_no"
+        constraint_buyer = lambda part: part['type'] == Subscriber.SubscriberType.BAP
+        constraint_seller = lambda part: part['type'] == Subscriber.SubscriberType.BPP and not part['msn']
+        constraint_msn_seller = lambda part: part['type'] == Subscriber.SubscriberType.BPP and part['msn']
+        match operation:
+            case 1:
+                validated = len(network_participant) == len(get_filtered_list(constraint_buyer))   
+                err_string = "ops_no 1 can only create new BAP."
+            case 2:
+                validated = len(network_participant) == len(get_filtered_list(constraint_seller))
+                err_string = "ops_no 2 can only create new Non-MSN BPP."
+            case 3:
+                validated = len(network_participant) == len(get_filtered_list(constraint_msn_seller))
+                err_string = "ops_no 3 can only create new MSN BPP."
+            case 4:
+                validated =   ( 
+                    any(get_filtered_list(constraint_buyer)) and \
+                    any(get_filtered_list(constraint_seller)) and \
+                    not any(get_filtered_list(constraint_msn_seller))
+                )
+                err_string = "ops_no 4 can only create BAP and Non-MSN BPP together."
+            case 5:
+                validated =   ( 
+                    any(get_filtered_list(constraint_buyer)) and \
+                    not any(get_filtered_list(constraint_seller)) and \
+                    any(get_filtered_list(constraint_msn_seller))
+                )
+                err_string = "ops_no 5 can only create BAP and MSN BPP together."
+
+        if not validated:
+            raise serializers.ValidationError({'operation': err_string})
+
+
+    def validate(self, attrs: Any) -> Any:
+        validated_data: OrderedDict =  super().validate(attrs)
+        self.validate_operation(validated_data['context']['operation']['ops_no'], 
+                                validated_data['message']['network_participant']
+                                )
+        return validated_data
 
 
     #TODO: Add update function (subscriber details, network participant, seller_on_record)
