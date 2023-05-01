@@ -3,7 +3,6 @@ from .serializers import *
 import json
 import pytest
 from pathlib import Path
-from django.conf import settings
 from datetime import datetime
 
 
@@ -55,3 +54,24 @@ class TestWriteSubscriberSerializer(TestCase):
                 case 5:
                     exp_str = "ops_no 5 can only create BAP and MSN BPP together."
             self.assertEqual(str(exc), exp_str)
+
+class TestWriteSubscriberSerializerCreateFunc(TestCase):
+    serializer_class = WriteSubscriberSerializer
+
+    def setUp(self) -> None:
+        super().setUp()
+        directory = Path(__file__).parent
+        with open(Path.joinpath(directory, "fixtures/subscribe_request_passing.json"), "r") as file:
+            self.subscribe_pass_fixtures = json.load(file)
+        with open(Path.joinpath(directory, "fixtures/subscribe_request_fail.json"), "r") as file:
+            self.subscribe_fail_fixtures = json.load(file)
+        with open(Path.joinpath(directory, "fixtures/subscriber_update_passing.json"), "r") as file:
+            self.subscriber_update_passing_fixtures = json.load(file)
+    
+    def test_create_pass(self):
+        for fixture in self.subscribe_pass_fixtures:
+            fixture['message']['timestamp'] = datetime.now()
+            serialized = self.serializer_class(data=fixture)
+            if serialized.is_valid(raise_exception=True):
+                subscriber = serialized.create(serialized.validated_data)
+                self.assertIsInstance(subscriber, Subscriber)

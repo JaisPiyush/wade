@@ -12,8 +12,22 @@ from collections import OrderedDict
 class KeyPairDetailSerializer(serializers.Serializer):
     signing_public_key = serializers.CharField(required=True)
     encryption_public_key = serializers.CharField(required=True)
-    valid_from = serializers.DateTimeField(required=True)
-    valid_until = serializers.DateTimeField(required=True)
+    valid_from = serializers.CharField(required=True)
+    valid_until = serializers.CharField(required=True)
+
+    def validate(self, attrs: Any) -> Any:
+        validated_data =  super().validate(attrs)
+        try:
+            valid_from = datetime.strptime(validated_data['valid_from'], settings.DATETIME_FORMAT)
+        except Exception as e:
+            raise serializers.ValidationError({'valid_from': 'Invalid datetime format'}, code='invalid')
+        try:
+            valid_until = datetime.strptime(validated_data['valid_until'], settings.DATETIME_FORMAT)
+        except:
+            raise serializers.ValidationError({'valid_until': 'Invalid datetime format'}, code='invalid')
+        if valid_until < valid_from:
+            raise serializers.ValidationError({'key_pair': 'Expiry time is lower than validity time'}, code='invalid')
+        return validated_data
 
 class SellerOnRecordSerializer(serializers.ModelSerializer):
 
@@ -21,8 +35,7 @@ class SellerOnRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SellerOnRecord
-        fields = '__all__'
-        write_only_fields = ('network_participant',)
+        exclude = ('network_participant',)
         read_only_fields = ('created', 'updated')
     
 
@@ -45,8 +58,16 @@ class NetworkParticipantSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('This field is unacceptable, only BPP-MSN can create this.')
         return validated_data
     
-    def create(self, subscriber: Subscriber, validated_data: Any) -> Any:
-        return NetworkParticipant.objects.create(subscriber=subscriber, **validated_data)
+    def create(self, subscriber: Subscriber, validated_data: OrderedDict) -> Any:
+        seller_on_record = None
+        if 'seller_on_record' in validated_data:
+            seller_on_record = validated_data.pop('seller_on_record')
+        network_participant =  NetworkParticipant.objects.create(subscriber=subscriber, **validated_data)
+        if seller_on_record:
+            SellerOnRecord.objects.bulk_create(
+                [SellerOnRecord(network_participant = network_participant, **seller) for seller in seller_on_record]
+            )
+        return network_participant
 
 
 class GSTDetailSerializer(serializers.Serializer):
@@ -73,9 +94,7 @@ class SubscriberSerializer(serializers.ModelSerializer):
         create_only_fields = ('subscriber_id',)
     
     def create(self, validated_data: OrderedDict) -> Any:
-        if Subscriber.objects.filter(unique_key_id=validated_data.get('unique_key_id')).exists():
-            raise serializers.ValidationError({'unique_key_id': 'Subscriber with key_id already exists.'})
-        return super().create(validated_data)
+        raise Exception('method call now allowed directly')
 
 
 class WriteSubscriberOperationNumberSerializer(serializers.Serializer):
@@ -152,11 +171,13 @@ class WriteSubscriberSerializer(serializers.Serializer):
 
     #TODO: Add update function (subscriber details, network participant, seller_on_record)
     def create(self, validated_data):
-        subscriber = self.message.entity.create(validated_data['message']['entity'])
-        NetworkParticipant.objects.bulk_create(
-            [NetworkParticipant(subscriber=subscriber, **participant.validated_data
-                                ) for participant in self.message.network_participant]
-        )
+        if Subscriber.objects.filter(unique_key_id=validated_data.get('unique_key_id')).exists():
+            raise serializers.ValidationError({'unique_key_id': 'Subscriber with key_id already exists.'})
+        subscriber = Subscriber.objects.create(**validated_data['message']['entity'])
+        for participant in validated_data['message']['network_participant']:
+            serialized_participant = NetworkParticipantSerializer(data=participant, context=self.context)
+            serialized_participant.is_valid()
+            serialized_participant.create(subscriber, participant)
         return subscriber
         # TODO: Queue post processing
     # Only updates the Subscriber model

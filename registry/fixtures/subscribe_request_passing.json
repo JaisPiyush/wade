@@ -57,7 +57,7 @@
           }
         },
         "message": {
-          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "request_id": "27baa06d-f90a-486c-85e5-cc621b787fy04",
           "timestamp": "2022-07-08T13:44:54.101Z",
           "entity": {
             "gst": {
@@ -74,12 +74,12 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
             "subscriber_id": "sit.grab.in",
-            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+            "unique_key_id": "27baa06d-f90a-486c-85e5-cyc621b787f04",
             "callback_url": "/ondc/onboarding",
             "key_pair": {
               "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
@@ -108,7 +108,7 @@
           }
         },
         "message": {
-          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "request_id": "27baa06d-f90a-486c-85e5-cc6t1b787f04",
           "timestamp": "2022-07-08T13:44:54.101Z",
           "entity": {
             "gst": {
@@ -125,12 +125,12 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
             "subscriber_id": "sit.grab.in",
-            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+            "unique_key_id": "27baa06d-f90a-486c-85e5-cct621b787f04",
             "callback_url": "/ondc/onboarding",
             "key_pair": {
               "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
@@ -149,7 +149,7 @@
             ],
             "seller_on_record": [
               {
-                "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+                "unique_key_id": "27baa06d-f90a-486c-85e5-cc6t21b787f04",
                 "key_pair": {
                   "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
                   "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",
@@ -171,7 +171,7 @@
           }
         },
         "message": {
-          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "request_id": "27baa06d-f90a-486c-85e5-cc62t1b787f04",
           "timestamp": "2022-07-08T13:44:54.101Z",
           "entity": {
             "gst": {
@@ -188,12 +188,12 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
             "subscriber_id": "sit.grab.in",
-            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787rf04",
             "callback_url": "/ondc/onboarding",
             "key_pair": {
               "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
@@ -231,7 +231,7 @@
           }
         },
         "message": {
-          "request_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+          "request_id": "27baa06d-f90a-486c-85e5-cc621tb787f04",
           "timestamp": "2022-07-08T13:44:54.101Z",
           "entity": {
             "gst": {
@@ -248,12 +248,12 @@
               "date_of_incorporation": "23/06/1982"
             },
             "name_of_authorised_signatory": "Anand Sharma",
-            "retailaddress_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
+            "address_of_authorised_signatory": "405, Pinnacle House, Kandiwali, Mumbai 400001",
             "email_id": "anand.sharma@abc.com",
             "mobile_no": 9912332199,
             "country": "IND",
             "subscriber_id": "sit.grab.in",
-            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+            "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f404",
             "callback_url": "/ondc/onboarding",
             "key_pair": {
               "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
@@ -282,7 +282,7 @@
               ],
               "seller_on_record": [
                 {
-                  "unique_key_id": "27baa06d-f90a-486c-85e5-cc621b787f04",
+                  "unique_key_id": "27baa06d-f90a-486c-85e5t-cc621b787f04",
                   "key_pair": {
                     "signing_public_key": "QSax2KT4UiTUWUqoVUaEcWhBcGTTNu+Sf8EMDRY1GaE=",
                     "encryption_public_key": "O74ukMymk4KZnVs3sZhU2U7RXpaZ/qiOUMk5NWt6rbI=",

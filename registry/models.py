@@ -27,7 +27,7 @@ class Subscriber(models.Model):
 
     unique_key_id = models.CharField(max_length=70, primary_key=True, blank=False, null=False)
     subscriber_id = models.CharField(max_length=265,  editable=False, db_index=True)
-    callback_url = models.TextField(unique=True, blank=False, null=False)
+    callback_url = models.TextField(blank=False, null=False)
     country = models.CharField(max_length=3, blank=False, null=False)
     key_pair = models.JSONField(default=dict, blank=False, null=False)
     gst = models.JSONField(default=dict, blank=False, null= False)
